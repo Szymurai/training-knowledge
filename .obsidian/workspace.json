@@ -4,13 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "0e8e5fbed81a6066",
+        "id": "df70220c6290cbce",
         "type": "split",
         "children": [
           {
             "id": "b8b25029522c6172",
             "type": "tabs",
-            "dimension": 64.25992779783394,
             "children": [
               {
                 "id": "322c8f52bc6c3d47",
@@ -18,23 +17,22 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "README.md",
+                    "file": "n8n-training-knowledge/Todo.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "README"
+                  "title": "Todo"
                 }
               }
             ]
           },
           {
-            "id": "5377a5f25dd5d535",
+            "id": "11e654c4952a76f4",
             "type": "tabs",
-            "dimension": 35.74007220216607,
             "children": [
               {
-                "id": "7866367fddec2a7e",
+                "id": "ad0983b8ec092734",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
@@ -241,10 +239,12 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "7866367fddec2a7e",
+  "active": "ad0983b8ec092734",
   "lastOpenFiles": [
-    "README.md",
+    "n8n-training-knowledge/Todo.md",
     "n8n-training-knowledge/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.md",
+    "n8n-training-knowledge/ScreenShot Tool -20260215182028.png",
+    "README.md",
     "n8n-training-knowledge/ScreenShot Tool -20260215173727.png",
     "n8n-training-knowledge/ScreenShot Tool -20260215172715.png",
     "n8n-training-knowledge/Untitled",
@@ -257,7 +257,6 @@
     "n8n-training-knowledge/ScreenShot Tool -20260209185431.png",
     "n8n-training-knowledge/ScreenShot Tool -20260209185326.png",
     "n8n-training-knowledge/ScreenShot Tool -20260209185224.png",
-    "n8n-training-knowledge/ScreenShot Tool -20260209184636.png",
-    "n8n-training-knowledge/ScreenShot Tool -20260209183857.png"
+    "n8n-training-knowledge/ScreenShot Tool -20260209184636.png"
   ]
 }

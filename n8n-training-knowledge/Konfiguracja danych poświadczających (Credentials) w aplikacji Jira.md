@@ -5,7 +5,7 @@ Na wstępie – w zależności od typu instancji Jiry, którą dysponujemy (w sw
 Proces generowania tokenu API zilustruję na przykładzie wersji Cloud, ponieważ wersja Server w n8n wymaga podania jedynie nazwy użytkownika i hasła (token API nie jest w niej wymagany).
 
 **Logowanie się do Jira Cloud Account**:
-- Przechodzimy na stronę https://id.atlassian.com/login – po czym logujemy się odpowiednim adresem e-mail (powiązanym z naszym kontem).
+- Przechodzimy na stronę https://id.atlassian.com/login i logujemy się, podając odpowiedni adres e-mail (powiązany z naszym kontem).
 ![[ScreenShot Tool -20260209094449.png]]
 Następnie, po zalogowaniu się, przechodzimy do widoku generowania tokenów API tj. `Zarządzaj ustawieniami konta > Bezpieczeństwo > Tokeny API`:
 ![[ScreenShot Tool -20260209100346.png]]
@@ -28,10 +28,24 @@ Aby poprawnie połączyć się z Jirą z poziomu n8n, należy utworzyć nowe po�
 ![[ScreenShot Tool -20260209185224.png]]![[ScreenShot Tool -20260209185326.png]]
 W tym miejscu pojawi się popup
 ![[ScreenShot Tool -20260209185431.png]]
-Którego pola powinniśmy odpowiednio wypełnić tj.
-- Adres e-mail, którym logowaliśmy się do Jira Cloud Account
-- API Token – token, który wygenerowaliśmy w poprzednich krokach
-- Domain
+Poszczególne pola wypełniamy następująco:
+  - Adres e-mail, którym logowaliśmy się do konta Jira Cloud Account
+  - API Token – token, który wygenerowaliśmy w poprzednich krokach
+  - Domain – domena Twojej organizacji w Jira Cloud, np. company-name.atlassian.net (ewentualnie pełny adres: https://company-name.atlassian.net).
 
-Warto w tym miejscu zwrócić uwagę, iż w wersji utrzymywanej przez oficjalną stronę https://n8n.io/ Możemy posłużyć się wbudowaną Generatywną AI w celu poprawnego uzupełnienia danych:
+Warto w tym miejscu zwrócić uwagę, iż w wersji dostępnej na oficjalnej stronie https://n8n.io/ możemy posłużyć się wbudowaną generatywną AI w celu poprawnego uzupełnienia danych:
 ![[ScreenShot Tool -20260215173727.png]]
+
+Po poprawnej konfiguracji powinniśmy zobaczyć zielony komunikat (badge) potwierdzający udane testowe połączenie n8n z naszym kontem Atlassian za pomocą wygenerowanego tokenu. Skonfigurowane poświadczenie Jiry posłuży nam na późniejszym etapie warsztatów do budowania zaawansowanych automatyzacji i przepływów logicznie powiązanych z zadaniami w Jirze.
+
+---
+## Podsumowanie
+
+W ramach tego poradnika wykonaliśmy dwa kluczowe kroki niezbędne do integracji Jiry z platformą n8n:
+
+1. **Wygenerowaliśmy token API** w panelu bezpieczeństwa konta Atlassian (dotyczy wersji Jira Cloud. W przypadku wersji Server wystarczą login i hasło).
+2. **Skonfigurowaliśmy poświadczenie (Credentials)** typu Jira Software Cloud API na platformie n8n, podając adres e-mail, token API oraz domenę organizacji.
+
+Token API pełni rolę bezpiecznego zamiennika hasła tj. umożliwia n8n uwierzytelnianie się w Jirze bez konieczności przechowywania danych logowania użytkownika. Warto pamiętać, aby przechowywać go w bezpiecznym miejscu (np. w menedżerze haseł) i nigdy nie udostępniać osobom niepowołanym.
+
+Tak przygotowane poświadczenie stanowi fundament dalszej pracy z n8n – będziemy z niego korzystać przy tworzeniu przepływów automatyzujących operacje na zadaniach, tablicach i projektach w Jirze.

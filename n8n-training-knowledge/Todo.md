@@ -1,0 +1,2 @@
+- [ ] Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.)
+- [ ] Konfiguracja https://www.docling.ai (open-source OCR)
