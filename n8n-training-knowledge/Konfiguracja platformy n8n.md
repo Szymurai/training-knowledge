@@ -10,21 +10,24 @@ Aplikację n8n, ze względu na sposób uruchamiania, możemy podzielić na:
 Aplikację n8n możemy uruchomić na kilka sposobów, w zależności od wersji, którą wybierzemy:
 - Zakładamy konto na oficjalnej stronie n8n (wersja Cloud).
 - Wybieramy hosting u zewnętrznego dostawcy, np. https://railway.com.
-- Uruchamiamy wersję self-hosted lokalnie — bezpośrednio w systemie operacyjnym (np. przez npm).
-- Uruchamiamy wersję self-hosted lokalnie — w środowisku kontenerowym, np. za pomocą Docker Desktop (dostępne na macOS, Linuksie oraz Windowsie).
+- Uruchamiamy wersję self-hosted lokalnie tj. bezpośrednio w systemie operacyjnym (np. przez npm).
+- Uruchamiamy wersję self-hosted lokalnie: w środowisku kontenerowym, np. za pomocą Docker Desktop (dostępne na macOS, Linuksie oraz Windowsie).
 
-W tym poradniku zilustrujemy trzy sposoby uruchomienia n8n: przez oficjalną stronę (wersja Cloud), lokalnie w systemie operacyjnym (self-hosted) oraz za pomocą Dockera. Uruchamianie wersji self-hosted u zewnętrznych dostawców różni się w zależności od wybranego usługodawcy, dlatego ten wariant omawiamy indywidualnie — na życzenie kursantów.
+W tym poradniku zilustrujemy trzy sposoby uruchomienia n8n: przez oficjalną stronę (wersja Cloud), lokalnie w systemie operacyjnym (self-hosted) oraz za pomocą Dockera. Uruchamianie wersji self-hosted u zewnętrznych dostawców różni się w zależności od wybranego usługodawcy, dlatego ten wariant omawiamy indywidualnie – na życzenie kursantów.
 
 ---
 ## Konfiguracja konta na platformie https://n8n.io (wersja Cloud):
-![[ScreenShot Tool -20260209183411.png]]
+![[screenshots-n8n/n8n-screenshot-20260209183411.png]]
 W pierwszym kroku klikamy przycisk „Get Started", a następnie po przeniesieniu na kolejną stronę – wpisujemy swój adres e-mail, na który zostanie zarejestrowane konto. Po upewnieniu się, że adres jest poprawny, klikamy „Submit".
-![[ScreenShot Tool -20260209183758.png]]
+![[screenshots-n8n/n8n-screenshot-20260209183758.png]]
 W celu weryfikacji adresu e-mail na podany adres zostanie wysłany kod weryfikacyjny. Wpisujemy go i klikamy „Submit":
-![[ScreenShot Tool -20260209183857.png]]
+![[screenshots-n8n/n8n-screenshot-20260209183857.png]]
 Po założeniu konta platforma przekieruje nas do widoku Dashboard:
-![[ScreenShot Tool -20260209184636.png]]
+![[screenshots-n8n/n8n-screenshot-20260209184636.png]]
 Aby przejść do nowo utworzonej instancji, klikamy „Open Instance". Naszym oczom ukaże się serce n8n tj. miejsce, w którym zaprojektujemy pierwszy przepływ automatyzujący pracę.
+
+---
+
 ## Konfiguracja n8n bezpośrednio w systemie operacyjnym (bez konteneryzacji).
 Aby uruchomić n8n bezpośrednio w systemie operacyjnym, musimy najpierw zainstalować środowisko Node.js (w wersji 18 lub nowszej).
 
@@ -140,3 +143,15 @@ Podgląd logów (przydatny przy diagnozowaniu problemów):
 ```bash
 docker logs -f n8n
 ```
+
+---
+
+## Podsumowanie
+
+W ramach tego poradnika przedstawiliśmy trzy sposoby uruchomienia platformy n8n:
+
+1. **Wersja Cloud (n8n.io)**: najprostszy wariant, nie wymagający instalacji. Wystarczy założyć konto na oficjalnej stronie, zweryfikować adres e-mail i otworzyć gotową instancję.
+2. **Wersja self-hosted (npm)**: instalacja bezpośrednio w systemie operacyjnym za pomocą `npm install n8n -g`. Wymaga środowiska Node.js w wersji 18 lub nowszej.
+3. **Wersja self-hosted (Docker)**: uruchomienie n8n w kontenerze Docker z zamontowanym wolumenem na dane. Zapewnia izolację od systemu hosta i łatwość aktualizacji.
+
+Każdy z wariantów prowadzi do tego samego rezultatu tj. działającej instancji n8n dostępnej pod adresem `http://localhost:5678` (w przypadku wersji self-hosted) lub w panelu n8n Cloud. Wybór zależy od preferencji i wymagań dotyczących infrastruktury.
