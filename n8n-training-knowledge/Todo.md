@@ -1,6 +1,6 @@
 - [x] Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.)
 - [ ] Konfiguracja https://www.docling.ai (open-source OCR)
-- [ ] Konfiguracja OpenRouter Account
+- [x] Konfiguracja OpenRouter Account
 - [ ] Konfiguracja OpenAI Account/API
 - [ ] Konfiguracja Anthropic Account/API/Claude Code
 - [ ] Konfiguracja Ollama (już częściowo mam w Docker Desktop).

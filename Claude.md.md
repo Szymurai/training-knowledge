@@ -1,0 +1,3 @@
+- Częściej niż "lub" używaj, tam gdzie to adekwatne "bądź".
+- Zamiast long dashes, bardziej staraj się stosować (angielski odpowiednik "i.e.") – "tj.", dwukropka ":" bądź przecinka ",".
+- 
