@@ -94,21 +94,41 @@ Po utworzeniu klucza zostanie on wyświetlony na ekranie:
 Jak uruchomić własną instancję n8n lub założyć darmowe konto na oficjalnej stronie producenta – szczegółowo ilustruję w tym wątku:
 [[Konfiguracja platformy n8n]]
 
-OpenRouter udostępnia API w pełni kompatybilne z formatem OpenAI – dzięki temu w n8n możemy skorzystać z istniejącego typu poświadczeń **OpenAi API**, podmieniając jedynie adres bazowy (Base URL) na endpoint OpenRouter.
+Platforma n8n oferuje natywny typ poświadczeń **OpenRouter**, co sprawia, że konfiguracja jest szybka i bezproblemowa – wystarczy wkleić klucz API.
 
-**Tworzenie poświadczenia:**
-1. W n8n przechodzimy do zakładki **Credentials** i klikamy **Add Credential** (bądź **Add first credential** – jeśli uruchamiamy świeżą instancję).
-2. W wyświetlonym oknie wyszukujemy typ poświadczeń: **OpenAi API** i klikamy **Continue**.
+### Sposób 1: Natywne poświadczenie OpenRouter (zalecany)
+
+1. W n8n przechodzimy do zakładki **Credentials** i klikamy **Create credential** (bądź **Add first credential** – jeśli uruchamiamy świeżą instancję).
+2. W wyświetlonym oknie wyszukujemy typ poświadczeń: **OpenRouter** i klikamy **Continue**.
 
 ![[screenshots-openrouter/openrouter-screenshot-placeholder-08.png]]
 
-3. Uzupełniamy pola w formularzu:
+3. Uzupełniamy pole w formularzu:
    - **API Key** – klucz API, który wygenerowaliśmy w poprzednim kroku
-   - **Base URL** – zmieniamy domyślny adres na: `https://openrouter.ai/api/v1`
 
 ![[screenshots-openrouter/openrouter-screenshot-placeholder-09.png]]
 
 4. Klikamy **Save** w celu zapisania poświadczenia.
+
+Warto w tym miejscu zwrócić uwagę, iż w wersji Cloud platformy n8n (dostępnej na https://n8n.io/) możemy posłużyć się wbudowanym asystentem AI (przycisk **n8n AI**) w celu uzyskania instrukcji dotyczących poprawnego uzupełnienia pól formularza. Funkcja ta nie jest dostępna w instancjach self-hosted.
+
+### Sposób 2: Poświadczenie OpenAi API (alternatywny)
+
+OpenRouter udostępnia API w pełni kompatybilne z formatem OpenAI – dzięki temu w n8n możemy również skorzystać z typu poświadczeń **OpenAi**, podmieniając jedynie adres bazowy (Base URL) na endpoint OpenRouter. Podejście to bywa przydatne, gdy chcemy korzystać z węzłów n8n zaprojektowanych stricte pod OpenAI.
+
+1. W oknie tworzenia poświadczeń wyszukujemy typ: **OpenAi** i klikamy **Continue**.
+
+![[screenshots-openrouter/openrouter-screenshot-placeholder-10.png]]
+
+2. Uzupełniamy pola w formularzu:
+   - **API Key** – klucz API OpenRouter
+   - **Base URL** – zmieniamy domyślny adres na: `https://openrouter.ai/api/v1`
+
+![[screenshots-openrouter/openrouter-screenshot-placeholder-11.png]]
+
+3. Klikamy **Save** w celu zapisania poświadczenia.
+
+> **Warto wiedzieć:** Nowe konta na platformie n8n Cloud mogą otrzymać **100 darmowych kredytów od OpenAI** – stosowny komunikat z przyciskiem **Claim credits** pojawi się w górnej części formularza poświadczeń OpenAi.
 
 > **Wskazówka:** OpenRouter obsługuje opcjonalne nagłówki HTTP, które pozwalają identyfikować naszą aplikację w statystykach platformy:
 > - `HTTP-Referer` – adres URL naszej aplikacji
@@ -116,8 +136,7 @@ OpenRouter udostępnia API w pełni kompatybilne z formatem OpenAI – dzięki t
 >
 > Dla zastosowań warsztatowych nie są one wymagane.
 
-Po poprawnej konfiguracji powinniśmy móc korzystać z modeli AI dostępnych w katalogu OpenRouter bezpośrednio z poziomu węzłów (nodes) n8n – np. w węźle **AI Agent**, **Chat Model** czy **OpenAI**.
-![[screenshots-openrouter/openrouter-screenshot-placeholder-10.png]]
+Po poprawnej konfiguracji (niezależnie od wybranego sposobu) powinniśmy móc korzystać z modeli AI dostępnych w katalogu OpenRouter bezpośrednio z poziomu węzłów (nodes) n8n – np. w węźle **AI Agent**, **Chat Model** czy **OpenAI**.
 
 ---
 
@@ -125,11 +144,11 @@ Po poprawnej konfiguracji powinniśmy móc korzystać z modeli AI dostępnych w 
 
 Klucz API OpenRouter pełni rolę poświadczenia uwierzytelniającego – każdy, kto go posiada, może wykonywać zapytania do modeli AI na koszt naszego konta. Dlatego warto przestrzegać kilku zasad:
 
-- **Nigdy nie commitujemy kluczy do publicznych repozytoriów** – OpenRouter współpracuje z GitHub w zakresie automatycznego skanowania sekretów. W przypadku wykrycia skompromitowanego klucza otrzymamy powiadomienie e-mail, jednak lepiej zapobiegać niż leczyć.
+- **Nigdy nie commitujemy kluczy do publicznych repozytoriów** – OpenRouter współpracuje z GitHub w zakresie automatycznego skanowania sekretów. W przypadku wykrycia ujawnionego klucza w publicznym repozytorium otrzymamy powiadomienie e-mail, jednak lepiej zapobiegać niż leczyć.
 - **Przechowujemy klucze w menedżerze haseł** – np. [1password](https://1password.com), Bitwarden lub KeePass.
 - **Stosujemy zmienne środowiskowe** – jeśli używamy klucza w kodzie bądź skryptach, przechowujemy go w pliku `.env` (dodanym do `.gitignore`), a nie bezpośrednio w kodzie źródłowym.
 - **Korzystamy z limitów kredytowych per klucz** – opcja Credit Limit dostępna podczas tworzenia klucza pozwala ograniczyć potencjalne straty w razie wycieku.
-- **W razie podejrzenia kompromitacji** – natychmiast usuwamy klucz na stronie https://openrouter.ai/keys i generujemy nowy.
+- **W razie podejrzenia wycieku danych** – natychmiast usuwamy klucz na stronie https://openrouter.ai/keys i generujemy nowy.
 
 ---
 
@@ -140,6 +159,6 @@ W ramach tego poradnika wykonaliśmy kompletną konfigurację konta OpenRouter n
 1. **Założyliśmy konto** na platformie OpenRouter – rejestrując się za pomocą konta Google, GitHub lub adresu e-mail.
 2. **Doładowaliśmy kredyty** – zasilając konto odpowiednią kwotą, niezbędną do korzystania z API modeli językowych.
 3. **Wygenerowaliśmy klucz API** – unikalny token uwierzytelniający, który skopiowaliśmy i zapisaliśmy w bezpiecznym miejscu.
-4. **Skonfigurowaliśmy poświadczenie w n8n** – wykorzystując typ OpenAi API z podmienionym Base URL na `https://openrouter.ai/api/v1`.
+4. **Skonfigurowaliśmy poświadczenie w n8n** – wykorzystując natywny typ OpenRouter (bądź alternatywnie OpenAi API z podmienionym Base URL na `https://openrouter.ai/api/v1`).
 
 Kluczową zaletą OpenRouter jest dostęp do setek modeli AI przez jedno API – bez konieczności osobnego konfigurowania kont u każdego dostawcy. Tak przygotowane poświadczenie stanowi fundament dalszej pracy z n8n – będziemy z niego korzystać przy tworzeniu przepływów automatyzujących zadania z wykorzystaniem modeli językowych, agentów AI oraz narzędzi generatywnych.
