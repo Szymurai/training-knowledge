@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "f384aed7349c0aff",
+        "id": "77c53eccf6d40210",
         "type": "tabs",
         "children": [
           {
-            "id": "640da2562fb24ee2",
+            "id": "5498b9f659de5a3b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "n8n-training-knowledge/Todo.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Todo"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "n8n-training-knowledge/Todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Todo"
+              "title": "Backlinks"
             }
           },
           {
@@ -156,13 +151,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "n8n-training-knowledge/Todo.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Todo"
+              "title": "Outline"
             }
           }
         ],
@@ -185,37 +179,37 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "640da2562fb24ee2",
+  "active": "5498b9f659de5a3b",
   "lastOpenFiles": [
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-11.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-10.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-09.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-08.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-07.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-06.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-05.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-04.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-03.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-02.png",
-    "n8n-training-knowledge/screenshots-openrouter/openrouter-screenshot-placeholder-01.png",
-    "n8n-training-knowledge/Todo.md",
-    "n8n-training-knowledge/screenshots-openrouter/originals",
-    "n8n-training-knowledge/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).md",
+    "n8n-training-knowledge/pdfs/Wprowadzenie do JSON i API (Application Programming Interface).pdf",
     "n8n-training-knowledge/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.md",
-    "n8n-training-knowledge/screenshots-openrouter",
-    "Claude.md.md",
+    "n8n-training-knowledge/pdfs/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.pdf",
     "n8n-training-knowledge/Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.).md",
-    "n8n-training-knowledge/Konfiguracja środowiska deweloperskiego tj. Node.js.md",
-    "n8n-training-knowledge/Konfiguracja platformy n8n.md",
+    "n8n-training-knowledge/pdfs/Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.).pdf",
+    "n8n-training-knowledge/Konfiguracja konta OpenAI (klucze API, doładowanie konta).md",
+    "n8n-training-knowledge/pdfs/Konfiguracja konta OpenAI (klucze API, doładowanie konta).pdf",
+    "n8n-training-knowledge/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).md",
+    "n8n-training-knowledge/pdfs/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).pdf",
     "n8n-training-knowledge/Konfiguracja oprogramowania Docker Desktop.md",
-    "n8n-training-knowledge/screenshots-n8n",
-    "n8n-training-knowledge/screenshots-docker",
-    "n8n-training-knowledge/screenshots-inne",
-    "n8n-training-knowledge/screenshots-jira",
-    "n8n-training-knowledge/screenshots-google-console/originals",
-    "n8n-training-knowledge/Konfiguracja Google Cloud Console - kompletny przewodnik (Gmail, Sheets, Drive, Docs).md.tmp.27651.1771259900258",
-    "n8n-training-knowledge/screenshots-google-console",
-    "README.md",
-    "n8n-training-knowledge/Untitled"
+    "n8n-training-knowledge/pdfs/Konfiguracja oprogramowania Docker Desktop.pdf",
+    "n8n-training-knowledge/Konfiguracja platformy n8n.md",
+    "n8n-training-knowledge/pdfs/Konfiguracja platformy n8n.pdf",
+    "n8n-training-knowledge/Konfiguracja środowiska deweloperskiego tj. Node.js.md",
+    "n8n-training-knowledge/pdfs/Konfiguracja środowiska deweloperskiego tj. Node.js.pdf",
+    "n8n-training-knowledge/pdfs",
+    "Todo.md",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-11.png",
+    "n8n-training-knowledge/screenshots-openai/originals/openai-screenshot-placeholder-11.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-09.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-08.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-10.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-07.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-04.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-03.png",
+    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-02.png",
+    "n8n-training-knowledge/screenshots-openai/originals/openai-screenshot-placeholder-09.png",
+    "n8n-training-knowledge/screenshots-openai/originals",
+    "Claude.md.md",
+    "README.md"
   ]
 }
