@@ -11,10 +11,14 @@
             "id": "5498b9f659de5a3b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "n8n-training-knowledge/Wprowadzenie do Canvas edytora przepływów n8n.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Wprowadzenie do Canvas edytora przepływów n8n"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 544.5110359191895
+    "width": 389.51103591918945
   },
   "right": {
     "id": "76a9d1c3e50341c8",
@@ -181,6 +185,20 @@
   },
   "active": "5498b9f659de5a3b",
   "lastOpenFiles": [
+    "n8n-training-knowledge/Porównanie platform automatyzacji przepływów pracy.md",
+    "n8n-training-knowledge/Wprowadzenie do Canvas edytora przepływów n8n.md",
+    "n8n-training-knowledge/pdfs/Porównanie platform automatyzacji przepływów pracy.pdf",
+    "n8n-training-knowledge/n8n w automatyzacji biura, księgowości i administracji.md",
+    "n8n-training-knowledge/Rozwiązywanie problemów z instalacją n8n (Windows).md",
+    "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220065230.png",
+    "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220065042.png",
+    "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220064922.png",
+    "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220064821.png",
+    "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220064715.png",
+    "n8n-training-knowledge/screenshots-comparison",
+    "Todo.md",
+    "n8n-training-knowledge/Konfiguracja platformy n8n.md",
+    "n8n-training-knowledge/Konfiguracja środowiska deweloperskiego tj. Node.js.md",
     "n8n-training-knowledge/pdfs/Wprowadzenie do JSON i API (Application Programming Interface).pdf",
     "n8n-training-knowledge/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.md",
     "n8n-training-knowledge/pdfs/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.pdf",
@@ -192,23 +210,13 @@
     "n8n-training-knowledge/pdfs/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).pdf",
     "n8n-training-knowledge/Konfiguracja oprogramowania Docker Desktop.md",
     "n8n-training-knowledge/pdfs/Konfiguracja oprogramowania Docker Desktop.pdf",
-    "n8n-training-knowledge/Konfiguracja platformy n8n.md",
     "n8n-training-knowledge/pdfs/Konfiguracja platformy n8n.pdf",
-    "n8n-training-knowledge/Konfiguracja środowiska deweloperskiego tj. Node.js.md",
     "n8n-training-knowledge/pdfs/Konfiguracja środowiska deweloperskiego tj. Node.js.pdf",
-    "n8n-training-knowledge/pdfs",
-    "Todo.md",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-11.png",
     "n8n-training-knowledge/screenshots-openai/originals/openai-screenshot-placeholder-11.png",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-09.png",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-08.png",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-10.png",
-    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-07.png",
-    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-04.png",
-    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-03.png",
-    "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-02.png",
-    "n8n-training-knowledge/screenshots-openai/originals/openai-screenshot-placeholder-09.png",
-    "n8n-training-knowledge/screenshots-openai/originals",
     "Claude.md.md",
     "README.md"
   ]
