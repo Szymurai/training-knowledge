@@ -1,0 +1,21 @@
+Numer faktury,Klient,E-mail,NIP,Data wystawienia,Termin płatności,Kwota netto,Stawka VAT,Kwota VAT,Kwota brutto,Status,Data płatności,Dni po terminie,Notatki
+FV/2026/001,Marta Kowalska Consulting,m.kowalska@mkconsulting.pl,1234567890,2026-01-03,2026-01-17,4500.00,23%,1035.00,5535.00,Opłacona,2026-01-15,0,Płatność przed terminem
+FV/2026/002,TechSoft Sp. z o.o.,biuro@techsoft.pl,9876543210,2026-01-05,2026-01-19,12000.00,23%,2760.00,14760.00,Opłacona,2026-01-18,0,
+FV/2026/003,Piekarnia Złote Kłosy,kontakt@zloteklosy.pl,5432109876,2026-01-10,2026-01-24,850.00,8%,68.00,918.00,Przeterminowana,,27,Brak kontaktu
+FV/2026/004,Akademia Językowa LinguaPro,info@linguapro.pl,1112223344,2026-01-12,2026-01-26,3200.00,23%,736.00,3936.00,Przeterminowana,,25,Wysłano 2 przypomnienia
+FV/2026/005,Zakład Produkcyjny METON,meton@produkcja.pl,5556667788,2026-01-15,2026-01-29,18500.00,23%,4255.00,22755.00,Opłacona,2026-01-28,0,
+FV/2026/006,Studio Graficzne Pixel,studio@pixel.pl,9990001122,2026-01-18,2026-02-01,2700.00,23%,621.00,3321.00,Przeterminowana,,19,
+FV/2026/007,Firma Budowlana Solidbud,biuro@solidbud.pl,7778889900,2026-01-20,2026-02-03,45000.00,23%,10350.00,55350.00,Przeterminowana,,17,Duże zamówienie – eskalować
+FV/2026/008,Sklep Internetowy ModaPlus,kontakt@modaplus.pl,3334445566,2026-01-22,2026-02-05,6800.00,23%,1564.00,8364.00,Przeterminowana,,15,
+FV/2026/009,Restauracja Pod Lipą,restauracja@podlipa.pl,2223334455,2026-01-25,2026-02-08,1200.00,8%,96.00,1296.00,Przeterminowana,,12,
+FV/2026/010,Kancelaria Prawna Nowak i Wiśniewska,kancelaria@nw-law.pl,6667778899,2026-01-28,2026-02-11,9500.00,23%,2185.00,11685.00,Przeterminowana,,9,
+FV/2026/011,Usługi IT NetExpert,biuro@netexpert.pl,4445556677,2026-01-30,2026-02-13,7200.00,23%,1656.00,8856.00,Przeterminowana,,7,Pierwsze przypomnienie dziś
+FV/2026/012,Centrum Medyczne HealthFirst,rejestracja@healthfirst.pl,8889900011,2026-02-01,2026-02-15,3400.00,23%,782.00,4182.00,Przeterminowana,,5,
+FV/2026/013,Agencja Marketingowa BrandUp,hello@brandup.pl,1122334567,2026-02-03,2026-02-17,5600.00,23%,1288.00,6888.00,Przeterminowana,,3,
+FV/2026/014,Logistyka i Transport SpeedLog,biuro@speedlog.pl,2345678901,2026-02-05,2026-02-19,22000.00,23%,5060.00,27060.00,Przeterminowana,,1,
+FV/2026/015,Firma Szkoleniowa ProTrainer,szkolenia@protrainer.pl,3456789012,2026-02-07,2026-02-21,4100.00,23%,943.00,5043.00,Oczekuje,,0,Termin za 1 dzień
+FV/2026/016,E-commerce Solutions WebStore,kontakt@webstore.pl,4567890123,2026-02-10,2026-02-24,8300.00,23%,1909.00,10209.00,Oczekuje,,0,Termin za 4 dni
+FV/2026/017,Fabryka Mebli WoodArt,biuro@woodart.pl,5678901234,2026-02-12,2026-02-26,31500.00,23%,7245.00,38745.00,Oczekuje,,0,Termin za 6 dni
+FV/2026/018,Przedszkole Słoneczko,dyrekcja@sloneczko.pl,6789012345,2026-02-14,2026-02-28,1800.00,8%,144.00,1944.00,Oczekuje,,0,Termin za 8 dni
+FV/2026/019,Serwis Samochodowy AutoFix,kontakt@autofix.pl,7890123456,2026-02-17,2026-03-03,5200.00,23%,1196.00,6396.00,Oczekuje,,0,Termin za 11 dni
+FV/2026/020,TechSoft Sp. z o.o.,biuro@techsoft.pl,9876543210,2026-02-18,2026-03-04,12000.00,23%,2760.00,14760.00,Oczekuje,,0,Faktura cykliczna – klient powracający

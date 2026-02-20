@@ -1,0 +1,249 @@
+{
+  "name": "Monitoring płatności – przypomnienia automatyczne",
+  "nodes": [
+    {
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "name": "Harmonogram – codziennie 8:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0002-0002-0002-000000000002",
+      "name": "Pobierz rejestr faktur",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [240, 300],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "WSTAW_ID_ARKUSZA_GOOGLE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "rejestr-faktur",
+          "mode": "name"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "a1b2c3d4-0003-0003-0003-000000000003",
+      "name": "Tylko przeterminowane",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-status",
+              "leftValue": "={{ $json['Status'] }}",
+              "rightValue": "Przeterminowana",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0004-0004-0004-000000000004",
+      "name": "≥ 30 dni po terminie?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-30days",
+              "leftValue": "={{ $json['Dni po terminie'] }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0005-0005-0005-000000000005",
+      "name": "E-mail: eskalacja do managera",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [960, 120],
+      "parameters": {
+        "sendTo": "manager@twojafirma.pl",
+        "subject": "=PILNE: Faktura {{ $json['Numer faktury'] }} – {{ $json['Dni po terminie'] }} dni po terminie",
+        "emailType": "html",
+        "message": "=<p>Dzień dobry,</p><p>Faktura <strong>{{ $json['Numer faktury'] }}</strong> wystawiona dla klienta <strong>{{ $json['Klient'] }}</strong> jest przeterminowana o <strong>{{ $json['Dni po terminie'] }} dni</strong> i wymaga eskalacji.</p><table border='1' cellpadding='6' cellspacing='0'><tr><td><strong>Kwota brutto</strong></td><td>{{ $json['Kwota brutto'] }} PLN</td></tr><tr><td><strong>Termin płatności</strong></td><td>{{ $json['Termin płatności'] }}</td></tr><tr><td><strong>E-mail klienta</strong></td><td>{{ $json['E-mail'] }}</td></tr></table><p>Proszę o bezpośredni kontakt telefoniczny z klientem.</p>",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0006-0006-0006-000000000006",
+      "name": "≥ 7 dni po terminie?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 420],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-7days",
+              "leftValue": "={{ $json['Dni po terminie'] }}",
+              "rightValue": 7,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0007-0007-0007-000000000007",
+      "name": "E-mail: drugie przypomnienie",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1200, 300],
+      "parameters": {
+        "sendTo": "={{ $json['E-mail'] }}",
+        "subject": "=Drugie przypomnienie o płatności: Faktura {{ $json['Numer faktury'] }}",
+        "emailType": "html",
+        "message": "=<p>Szanowni Państwo,</p><p>Pragniemy ponownie zwrócić uwagę, że faktura <strong>{{ $json['Numer faktury'] }}</strong> na kwotę <strong>{{ $json['Kwota brutto'] }} PLN</strong> jest przeterminowana o <strong>{{ $json['Dni po terminie'] }} dni</strong> (termin: {{ $json['Termin płatności'] }}).</p><p>Prosimy o niezwłoczne uregulowanie należności bądź kontakt w celu ustalenia warunków płatności.</p><p>Z poważaniem,<br>Dział Finansowy</p>",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0008-0008-0008-000000000008",
+      "name": "E-mail: pierwsze przypomnienie",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1200, 540],
+      "parameters": {
+        "sendTo": "={{ $json['E-mail'] }}",
+        "subject": "=Przypomnienie o płatności: Faktura {{ $json['Numer faktury'] }}",
+        "emailType": "html",
+        "message": "=<p>Szanowni Państwo,</p><p>Uprzejmie informujemy, że faktura <strong>{{ $json['Numer faktury'] }}</strong> na kwotę <strong>{{ $json['Kwota brutto'] }} PLN</strong>, z terminem płatności {{ $json['Termin płatności'] }}, oczekuje na uregulowanie.</p><p>Jeśli płatność została już zrealizowana, prosimy zignorować tę wiadomość.</p><p>Z poważaniem,<br>Dział Finansowy</p>",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Harmonogram – codziennie 8:00": {
+      "main": [
+        [
+          {
+            "node": "Pobierz rejestr faktur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pobierz rejestr faktur": {
+      "main": [
+        [
+          {
+            "node": "Tylko przeterminowane",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tylko przeterminowane": {
+      "main": [
+        [
+          {
+            "node": "≥ 30 dni po terminie?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "≥ 30 dni po terminie?": {
+      "main": [
+        [
+          {
+            "node": "E-mail: eskalacja do managera",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "≥ 7 dni po terminie?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "≥ 7 dni po terminie?": {
+      "main": [
+        [
+          {
+            "node": "E-mail: drugie przypomnienie",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "E-mail: pierwsze przypomnienie",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

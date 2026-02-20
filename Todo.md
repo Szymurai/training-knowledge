@@ -4,17 +4,17 @@
 - [x] Konfiguracja OpenAI Account/API
 - [ ] Konfiguracja Anthropic Account/API/Claude Code
 - [ ] Konfiguracja Ollama (już częściowo mam w Docker Desktop).
-- [ ] API (Application Programming Interface) – dodać prezentację. (LinkedIn re-post).
+- [x] API (Application Programming Interface) – dodać prezentację. (LinkedIn re-post).
 
 
 - [ ] Wysłać pliki z instrukcją przygotowania dokumentów (23)
 - [x] Stworzyć pliki z instrukcją przygotowania dokumentów na śląskie (23)
 - [ ] Nagrać filmik do AI Hero
 - [x] Wstawić post na LinkedIn
-- [ ] Przygotować się na szkolenie z Marią
+- [x] Przygotować się na szkolenie z Marią
 - [ ] Ogarnąć PQ
 
-- [ ] Zwrócić modem
+- [x] Zwrócić modem
 - [ ] Usunąć wiadomości z serwera AI Devs (niedziela)
 - [ ] Nagrać filmik o RPI i ograniczeniach LLM
 - [ ] Zmontować filmik na Camperture Travelling 

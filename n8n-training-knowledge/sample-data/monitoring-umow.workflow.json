@@ -1,0 +1,325 @@
+{
+  "name": "Monitoring umów – powiadomienia o wygasaniu",
+  "nodes": [
+    {
+      "id": "sticky-001",
+      "name": "Jak przełączać tryby",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [220, 60],
+      "parameters": {
+        "content": "## Tryb testowy / produkcyjny\n\nW węźle **⚙️ Konfiguracja** ustaw:\n- `testMode = true` → e-mail trafia na **adres testowy**\n- `testMode = false` → e-mail trafia **do klienta**\n\nTo jedyny punkt konfiguracji środowiska.\nReszta przepływu pozostaje bez zmian.",
+        "height": 200,
+        "width": 360,
+        "color": 4
+      }
+    },
+    {
+      "id": "trigger-001",
+      "name": "Harmonogram – codziennie 9:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "set-001",
+      "name": "⚙️ Konfiguracja",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [220, 300],
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-001",
+              "name": "testMode",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "assign-002",
+              "name": "testEmail",
+              "value": "test@twojafirma.pl",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "sheets-001",
+      "name": "Pobierz rejestr umów",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [440, 300],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "WSTAW_ID_ARKUSZA_GOOGLE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "rejestr-umow",
+          "mode": "name"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "filter-001",
+      "name": "Tylko aktywne umowy",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [660, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-001",
+              "leftValue": "={{ $json['Status'] }}",
+              "rightValue": "Wygasła",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "if-001",
+      "name": "Ma datę zakończenia?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [880, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-002",
+              "leftValue": "={{ $json['Data zakończenia'] }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "if-002",
+      "name": "Wygasa w ciągu 30 dni?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1100, 200],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-003",
+              "leftValue": "={{ Math.ceil((new Date($json['Data zakończenia']).getTime() - Date.now()) / 86400000) }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            },
+            {
+              "id": "cond-004",
+              "leftValue": "={{ Math.ceil((new Date($json['Data zakończenia']).getTime() - Date.now()) / 86400000) }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "if-003",
+      "name": "Tryb testowy?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1320, 200],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-005",
+              "leftValue": "={{ $('⚙️ Konfiguracja').first().json.testMode }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "gmail-test-001",
+      "name": "✉️ E-mail: ścieżka TEST",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1540, 80],
+      "parameters": {
+        "sendTo": "={{ $('⚙️ Konfiguracja').first().json.testEmail }}",
+        "subject": "=[TEST] Umowa wygasa wkrótce – {{ $json['Klient'] }}",
+        "emailType": "html",
+        "message": "=<p><strong style='color: darkorange;'>[WIADOMOŚĆ TESTOWA – nie wysłana do klienta]</strong></p><hr/><p><strong>Docelowy odbiorca:</strong> {{ $json['E-mail klienta'] || '(brak adresu)' }}</p><p><strong>Klient:</strong> {{ $json['Klient'] }}<br><strong>Umowa:</strong> {{ $json['Przedmiot umowy'] }}<br><strong>Data zakończenia:</strong> {{ $json['Data zakończenia'] }}<br><strong>Dni do wygaśnięcia:</strong> {{ Math.ceil((new Date($json['Data zakończenia']).getTime() - Date.now()) / 86400000) }}</p><hr/><p style='color: gray; font-size: 0.9em;'>Aby aktywować produkcję, zmień <code>testMode</code> na <code>false</code> w węźle ⚙️ Konfiguracja.</p>",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "gmail-prod-001",
+      "name": "✉️ E-mail: ścieżka PRODUKCJA",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1540, 320],
+      "parameters": {
+        "sendTo": "={{ $json['E-mail klienta'] }}",
+        "subject": "=Informacja o zbliżającym się terminie umowy – {{ $json['Przedmiot umowy'] }}",
+        "emailType": "html",
+        "message": "=<p>Szanowni Państwo,</p><p>Chcielibyśmy poinformować, że umowa dotycząca usługi <strong>{{ $json['Przedmiot umowy'] }}</strong> wygasa <strong>{{ $json['Data zakończenia'] }}</strong>, tj. za <strong>{{ Math.ceil((new Date($json['Data zakończenia']).getTime() - Date.now()) / 86400000) }} dni</strong>.</p><p>Prosimy o kontakt w celu omówienia warunków przedłużenia bądź zakończenia współpracy.</p><p>Z poważaniem,<br>Dział Obsługi Klienta</p>",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Harmonogram – codziennie 9:00": {
+      "main": [
+        [
+          {
+            "node": "⚙️ Konfiguracja",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⚙️ Konfiguracja": {
+      "main": [
+        [
+          {
+            "node": "Pobierz rejestr umów",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pobierz rejestr umów": {
+      "main": [
+        [
+          {
+            "node": "Tylko aktywne umowy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tylko aktywne umowy": {
+      "main": [
+        [
+          {
+            "node": "Ma datę zakończenia?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ma datę zakończenia?": {
+      "main": [
+        [
+          {
+            "node": "Wygasa w ciągu 30 dni?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wygasa w ciągu 30 dni?": {
+      "main": [
+        [
+          {
+            "node": "Tryb testowy?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tryb testowy?": {
+      "main": [
+        [
+          {
+            "node": "✉️ E-mail: ścieżka TEST",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "✉️ E-mail: ścieżka PRODUKCJA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

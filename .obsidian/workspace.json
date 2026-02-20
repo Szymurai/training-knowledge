@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "n8n-training-knowledge/Wprowadzenie do Canvas edytora przepływów n8n.md",
+                "file": "AI Hero – demo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wprowadzenie do Canvas edytora przepływów n8n"
+              "title": "AI Hero – demo"
             }
           }
         ]
@@ -185,6 +185,15 @@
   },
   "active": "5498b9f659de5a3b",
   "lastOpenFiles": [
+    "Todo.md",
+    "AI Hero – demo.md",
+    "n8n-training-knowledge/Canvas n8n – węzły i przepływy pracy.md",
+    "n8n-training-knowledge/Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.).md",
+    "n8n-training-knowledge/sample-data/monitoring-umow.workflow.json",
+    "n8n-training-knowledge/sample-data/rejestr-umow.csv",
+    "n8n-training-knowledge/sample-data/monitoring-platnosci.workflow.json",
+    "n8n-training-knowledge/sample-data/rejestr-faktur.csv",
+    "n8n-training-knowledge/sample-data",
     "n8n-training-knowledge/Porównanie platform automatyzacji przepływów pracy.md",
     "n8n-training-knowledge/Wprowadzenie do Canvas edytora przepływów n8n.md",
     "n8n-training-knowledge/pdfs/Porównanie platform automatyzacji przepływów pracy.pdf",
@@ -196,22 +205,15 @@
     "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220064821.png",
     "n8n-training-knowledge/screenshots-comparison/ScreenShot Tool -20260220064715.png",
     "n8n-training-knowledge/screenshots-comparison",
-    "Todo.md",
     "n8n-training-knowledge/Konfiguracja platformy n8n.md",
     "n8n-training-knowledge/Konfiguracja środowiska deweloperskiego tj. Node.js.md",
     "n8n-training-knowledge/pdfs/Wprowadzenie do JSON i API (Application Programming Interface).pdf",
     "n8n-training-knowledge/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.md",
     "n8n-training-knowledge/pdfs/Konfiguracja danych poświadczających (Credentials) w aplikacji Jira.pdf",
-    "n8n-training-knowledge/Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.).md",
     "n8n-training-knowledge/pdfs/Konfiguracja Google Cloud Console (Gmail, Sheets, Google Drive, Docs itd.).pdf",
     "n8n-training-knowledge/Konfiguracja konta OpenAI (klucze API, doładowanie konta).md",
-    "n8n-training-knowledge/pdfs/Konfiguracja konta OpenAI (klucze API, doładowanie konta).pdf",
     "n8n-training-knowledge/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).md",
-    "n8n-training-knowledge/pdfs/Konfiguracja konta OpenRouter (klucze API, doładowanie konta).pdf",
     "n8n-training-knowledge/Konfiguracja oprogramowania Docker Desktop.md",
-    "n8n-training-knowledge/pdfs/Konfiguracja oprogramowania Docker Desktop.pdf",
-    "n8n-training-knowledge/pdfs/Konfiguracja platformy n8n.pdf",
-    "n8n-training-knowledge/pdfs/Konfiguracja środowiska deweloperskiego tj. Node.js.pdf",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-11.png",
     "n8n-training-knowledge/screenshots-openai/originals/openai-screenshot-placeholder-11.png",
     "n8n-training-knowledge/screenshots-openai/openai-screenshot-placeholder-09.png",
